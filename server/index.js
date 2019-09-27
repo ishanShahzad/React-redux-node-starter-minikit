@@ -19,16 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.resolve(__dirname, "../client/dist")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(`${__dirname}/../client/dist/index.html`));
-});
-
-// app.get('/api/v1/', (req, res) => {
-//   res.send({ message: 'Welcome, built with NodeJs, Express and MongoDB' });
-// });
-
-// app.use('/api/v1/', routes);
-
 app.listen(port, () => {
-  console.log("server on 3000");
+  console.log("server is litening on port 3000");
 });

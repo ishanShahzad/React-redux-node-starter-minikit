@@ -1,13 +1,13 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 export const schema = {
   title: {
-    type: String,
+    type: String
   },
   content: {
-    type: String,
-  },
+    type: String
+  }
 };
 
 const RecordsSchema = new mongoose.Schema(schema);
-export const Record = mongoose.model('Record', RecordsSchema);
+module.exports = mongoose.model("Record", RecordsSchema);

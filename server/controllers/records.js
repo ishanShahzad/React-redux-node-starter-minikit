@@ -1,4 +1,4 @@
-import { Record } from '../models/Record';
+const { Record } = require("../models/Record");
 
 exports.getAll = async (req, res) => {
   try {
@@ -6,14 +6,14 @@ exports.getAll = async (req, res) => {
     if (records) {
       res.status(200).json({
         success: true,
-        message: 'success',
+        message: "success",
         records
       });
     }
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: 'An error occured',
+      message: "An error occured",
       error: `${error}`
     });
   }
@@ -26,22 +26,22 @@ exports.create = async (req, res) => {
     if (savedRecord) {
       res.status(201).json({
         success: true,
-        message: 'success',
-        record: savedRecord,
+        message: "success",
+        record: savedRecord
       });
     }
   } catch (error) {
-    if (error.name === 'MongoError' && error.code === 11000) {
+    if (error.name === "MongoError" && error.code === 11000) {
       return res.status(409).json({
         success: false,
-        message: 'An error has occurred',
-        error: `${error.message}`,
+        message: "An error has occurred",
+        error: `${error.message}`
       });
     }
     return res.status(500).json({
       success: false,
-      message: 'An error has occurred',
-      error: `${error}`,
+      message: "An error has occurred",
+      error: `${error}`
     });
   }
 };
